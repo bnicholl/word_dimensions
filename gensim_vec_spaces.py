@@ -4,8 +4,7 @@
 Created on Wed Feb 28 13:50:33 2018
 @author: bennicholl
 """
-import pyspark
-from pyspark.ml.feature import Word2Vec
+
 import numpy as np
 import pandas as pd
 from gensim import models
@@ -13,10 +12,8 @@ from gensim import models
 
 train = pd.read_csv('/Users/bennicholl/Desktop/datasets/train.csv')
 test = pd.read_csv('/Users/bennicholl/Desktop/datasets/test.csv')  
-#extract_comments = train['id'],train['comment_text']
  
 extract_comments = train['id'],train['comment_text']
-classify = np.array([train['toxic'],train['severe_toxic'],train['obscene'],train['threat'],train['insult'],train['identity_hate']]).T
 
 """the object created with this function will be the input for 
    functions vector_space and matrix_space argument, 'comments' """
@@ -36,20 +33,15 @@ def wrangle(content = extract_comments):
         """when this code gets ran, join our comma seperated chars to produce strings"""        
         comments.append(''.join(comma_seperated_chars))
         """split each string with a comma. EX. 'the', 'dog', 'ran' """
-        """wrapping the  comments[e].split()  in a [] is specifically for our createDataFrame"""
         comments[e] = comments[e].split()
     return comments
 
-
-#word2Vec = Word2Vec(vectorSize=50, minCount=0, inputCol="text", outputCol="result")
-#model = word2Vec.fit(a)
 
 """this function turns our words into vector spaces, than runs them through a neural net"""                                
 """the object created with this function will be the input for m_space's argument, 'v_space' """
 def vector_space(comments, size = 40):
     model = models.Word2Vec(comments, size, min_count=1)
     return model    
-
 
 
 """this function puts the words together, thus getting a document matrix created out of word 
