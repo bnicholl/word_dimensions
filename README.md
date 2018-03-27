@@ -3,11 +3,11 @@ The Jupiter Notebook describes how words derive meaning for NLP products such as
 
 The gensim_vec_spaces.py is an algorithm that uses the gensim module to create word vectors from a pandas dataframe
 The type that should be used for this algorithm is a pandas dataframe series with one column.                                 
-Example shoing the type of data:
+Example shoing the type of data:                                                                                                
 In [456]: type(extract_comments[1])                                                                                              
-Out[456]: pandas.core.series.Series                                                                                             
-                                                                                                                                
-In [460]:extract_comments[1]
+Out[456]: pandas.core.series.Series                                                                                                                                                                              
+                                                                                                                                       
+In [460]:extract_comments[1]                                                                                                    
 Out[460]:
 0 Explanation\nWhy the edits made under my usern...
 1 D'aww! He matches this background colour I'm s...
