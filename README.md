@@ -1,11 +1,9 @@
 # word_dimensions
-Jupiter Notebook describing how words derive meaning for NLP products such as Alexa and Siri: https://github.com/bnicholl/word_dimensions/blob/master/word_vectors.ipynb
+The Jupiter Notebook describes how words derive meaning for NLP products such as Alexa and Siri: https://github.com/bnicholl/word_dimensions/blob/master/word_vectors.ipynb
 
-
-This jawn uses the gensim module to create word vectors from a pandas dataframe
-
-The type that should be used for this algorithm is a pandas dataframe series with one column: Example
-
+The gensim_vec_spaces.py is an algorithm that uses the gensim module to create word vectors from a pandas dataframe
+The type that should be used for this algorithm is a pandas dataframe series with one column.                                 
+Example:
 In [456]:type(extract_comments[1])
 Out[456]: pandas.core.series.Series
 
